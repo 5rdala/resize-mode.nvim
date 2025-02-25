@@ -15,6 +15,11 @@ function clear_keybinds()
   vim.api.nvim_buf_del_keymap(0, "n", "j")
   vim.api.nvim_buf_del_keymap(0, "n", "k")
   vim.api.nvim_buf_del_keymap(0, "n", "l")
+
+  vim.api.nvim_buf_del_keymap(0, "n", "<Left>")
+  vim.api.nvim_buf_del_keymap(0, "n", "<Down>")
+  vim.api.nvim_buf_del_keymap(0, "n", "<Up>")
+  vim.api.nvim_buf_del_keymap(0, "n", "<Right>")
 end
 
 -- func to set resize mode keybinds 
@@ -26,6 +31,12 @@ function set_keybinds()
   vim.keymap.set("n", "j", resize.resize_down, opts)
   vim.keymap.set("n", "k", resize.resize_up, opts)
   vim.keymap.set("n", "l", resize.resize_right, opts)
+
+  -- resize using arrow keys
+  vim.keymap.set("n", "<Left>", resize.resize_left, opts)
+  vim.keymap.set("n", "<Down>", resize.resize_down, opts)
+  vim.keymap.set("n", "<Up>", resize.resize_up, opts)
+  vim.keymap.set("n", "<Right>", resize.resize_right, opts)
 
   -- exit resize mode with Esc
   vim.keymap.set("n", "<Esc>", function()
