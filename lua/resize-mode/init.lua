@@ -12,6 +12,7 @@ end
 function clear_keybinds()
   vim.api.nvim_buf_del_keymap(0, "n", "<Esc>")
   vim.api.nvim_buf_del_keymap(0, "n", "h")
+  vim.api.nvim_buf_del_keymap(0, "n", "j")
   vim.api.nvim_buf_del_keymap(0, "n", "k")
   vim.api.nvim_buf_del_keymap(0, "n", "l")
 end
@@ -22,6 +23,7 @@ function set_keybinds()
 
   -- resize using h/j/k/l
   vim.keymap.set("n", "h", resize.resize_left, opts)
+  vim.keymap.set("n", "j", resize.resize_down, opts)
   vim.keymap.set("n", "k", resize.resize_up, opts)
   vim.keymap.set("n", "l", resize.resize_right, opts)
 
