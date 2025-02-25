@@ -11,6 +11,8 @@ end
 -- func to clear keybinds of resize mode
 function clear_keybinds()
   vim.api.nvim_buf_del_keymap(0, "n", "<Esc>")
+  vim.api.nvim_buf_del_keymap(0, "n", "h")
+  vim.api.nvim_buf_del_keymap(0, "n", "l")
 end
 
 -- func to set resize mode keybinds 
@@ -18,6 +20,7 @@ function set_keybinds()
   local opts = { noremap = true, silent = true, buffer = true }
 
   vim.keymap.set("n", "h", resize.resize_left, opts)
+  vim.keymap.set("n", "l", resize.resize_right, opts)
 
   -- exit resize mode with Esc
   vim.keymap.set("n", "<Esc>", function()
