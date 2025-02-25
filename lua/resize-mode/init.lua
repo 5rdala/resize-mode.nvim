@@ -1,3 +1,5 @@
+local resize = require("resize-mode.resize")
+
 local M = {}
 
 -- func check if there are splits in the current tab
@@ -14,6 +16,8 @@ end
 -- func to set resize mode keybinds 
 function set_keybinds()
   local opts = { noremap = true, silent = true, buffer = true }
+
+  vim.keymap.set("n", "h", resize.resize_left, opts)
 
   -- exit resize mode with Esc
   vim.keymap.set("n", "<Esc>", function()
