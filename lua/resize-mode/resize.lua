@@ -97,4 +97,18 @@ function M.resize_up()
   end
 end
 
+function M.resize_down()
+  if not has_split_below() then
+    vim.cmd("resize +1")
+  else
+    if has_split_above() then
+      vim.cmd("wincmd k")
+      vim.cmd("resize +1")
+      vim.cmd("wincmd j")
+    else
+      vim.cmd("resize +1")
+    end
+  end
+end
+
 return M;
