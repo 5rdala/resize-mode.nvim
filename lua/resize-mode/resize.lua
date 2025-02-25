@@ -42,4 +42,18 @@ function M.resize_left()
   end
 end
 
+function M.resize_right()
+  if not has_split_right() then
+    vim.cmd("vertical resize -1")
+  else
+    if has_split_left() then
+      vim.cmd("wincmd h")
+      vim.cmd("vertical resize +1")
+      vim.cmd("wincmd l")
+    else
+      vim.cmd("vertical resize +1")
+    end
+  end
+end
+
 return M;
